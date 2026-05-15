@@ -37,3 +37,9 @@ printf '^XA
 
 ^XZ
 ' | lp -d Zebra_GC420t -o raw
+
+
+NOTA: por como esta configurada la raspi, se realizaron los siguientes pasos para que no use miniconda y pueda usar python3 directamente:
+1) agregar #!/usr/bin/python3 al principio del script
+2) cambiar los permisos del script con chmod +x ternaAdjetivosRGB.py
+3) ejecutar el script con ./ternaAdjetivosRGB.py

@@ -84,7 +84,7 @@ def ejecutar_impresion():
 
         terna = obtener_terna_adjetivos()
         zpl = generar_zpl(terna)
-        print(zpl)
+        #print(zpl)
         imprimir_zpl(zpl)
 
         print("Etiqueta enviada a la impresora.")
@@ -97,12 +97,12 @@ def ejecutar_impresion():
 
 
 if __name__ == "__main__":
-    ejecutar_impresion()  # Para pruebas sin botón
-    # boton = Button(GPIO_BOTON, pull_up=True, bounce_time=0.3)
+    #ejecutar_impresion()  # Para pruebas sin botón
+    boton = Button(GPIO_BOTON, pull_up=True, bounce_time=0.3)
 
-    # boton.when_pressed = ejecutar_impresion
+    boton.when_pressed = ejecutar_impresion
 
-    # print("Sistema listo.")
-    # print(f"Esperando botón en GPIO {GPIO_BOTON}...")
+    print("Sistema listo.")
+    print(f"Esperando botón en GPIO {GPIO_BOTON}...")
 
-    # pause()
+    pause()
