@@ -54,9 +54,9 @@ def generar_zpl(terna):
 ^PW448
 ^LL232
 
-^FO80,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_r}^FS
-^FO160,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_g}^FS
-^FO240,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_b}^FS
+^FO90,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_r}^FS
+^FO170,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_g}^FS
+^FO250,15^A0B,30,30^FB200,1,0,C,0^FD{palabra_b}^FS
 
 
 
