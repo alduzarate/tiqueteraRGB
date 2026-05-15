@@ -1,33 +1,4 @@
-En la raspi habria que instalar:
-sudo apt update
-sudo apt install python3-pil python3-gpiozero cups
-
-Supuestos importantes:
-
-- La impresora está instalada en CUPS (con las salvedades de que se agregue como Generic y Raw Queue).
-- El nombre de la impresora en CUPS es Zebra_GC420t. (Se puede chequear con lpstat -p)
-- El botón está conectado al GPIO 17 y a GND.
-- La Zebra acepta ZPL. Si la impresora está configurada solo en EPL, esto no va a funcionar hasta cambiar/configurar el lenguaje.
-
-Para poner en modo ZPL desde linux hay que:
-lpstat -p (para ver el nombre de la impresora)
-printf '! U1 getvar "device.languages"\n' | lp -d Zebra_GC420t -o raw (probar que devuelve este comando)
-printf '! U1 setvar "device.languages" "zpl"\n' | lp -d Zebra_GC420t -o raw (para cambiar a ZPL)
-REINICIAR IMPRESORA
-
-Tirar comandos de prueba para ver que imprime ZPL:
-
------------------------------------------------
-printf '^XA
-^FO100,100
-^A0N,40,40
-^FDHola chicas ZPL^FS
-^XZ
-' | lp -d Zebra_GC420t -o raw (para probar que imprime ZPL)
-
------------------------------------------------
-
-printf '^XA
+^XA
 
 ^FO165,0^GFA,935,935,11,,:::T04,P03I0E,P07I0C,P07801C18,P0E001C38,P0F0038383,O01E003078F,O01C007071F,O03C0070E1D,O0380060C39C,O07I0E1C39C,O0F700E3871C,O0FF00ED8738,O0FF31C3873,O0FE31C3073,O0EE79C3077,N01ECF1C303E,N01CCE1C301C,I0CK08CE1C308,001FL09C1C31,003F8001C09C1C3A,003F80CFC01C1C9C1,007F80IF01C1F8018,00FF00IF01C070038,00FF00IF00CJ078,01FE0073C007J07,01FE003O0FI08,01FC7018N0E001C,03FC7C18M01E001C,03FC7E18M01C001C,03FCFE08M03C001C,03FCFE08M038003C,03F8FE0C0180600380038,07F8FE0803C0F10780038,07F8FE0C0FC0F387I038,07F8FE0C0FC0F787I078,07F0FE041F61FF8F007F8,07F0FE441E6BFF8F01E78,07F0FE443C7IF8F03C7,07F1FE443C78FF1F07C7,07F1FF4C7C781F1E078F,07F1FFC878781E1E0F8F,07F1FFC878F83E1E0F9F0807F3FFC878E83E1E0F1F0807F3FFD878E03C1E1F371807FE7FF878E03C1E1F373,03FE7FF879E03C0EAF63E,03FC7FF879C03C0FEFC1C,01FC3FF87FC01C0FCF8,01FC1FF03F8J018,00FC0FC00E,,:U04,:T024,P0180364,M0800380D6C,M0C00243978,M0E00247278,M0F0074F66,M07C074FC,M07F078F8,M03FC78F,N0IF080FC,N07FF8FBF8,N01IFE7C,O03FF8FF8,S0FF,Q0147E,Q01F,Q0198,R0CC,R0E4,R0FE,R032,,::::^FS
 
@@ -36,4 +7,3 @@ printf '^XA
 ^FO165,190^A0N,30,30^FDBello^FS
 
 ^XZ
-' | lp -d Zebra_GC420t -o raw
