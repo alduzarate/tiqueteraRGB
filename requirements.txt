@@ -1,0 +1,10 @@
+En la raspi habria que instalar:
+sudo apt update
+sudo apt install python3-pil python3-gpiozero cups
+
+Supuestos importantes:
+
+- La impresora está instalada en CUPS (con las salvedades de que se agregue como Generic y Raw Queue).
+- El nombre de la impresora en CUPS es Zebra_GC420t. (Se puede chequear con lpstat -p)
+- El botón está conectado al GPIO 17 y a GND.
+- La Zebra acepta ZPL. Si la impresora está configurada solo en EPL, esto no va a funcionar hasta cambiar/configurar el lenguaje.
