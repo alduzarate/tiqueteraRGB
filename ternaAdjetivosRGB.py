@@ -108,7 +108,10 @@ if __name__ == "__main__":
 
     boton.when_pressed = ejecutar_impresion
 
-    print("Sistema listo.")
-    print(f"Esperando botón en GPIO {GPIO_BOTON}...")
+    print("Oráculo RGB listo. Pensando...")
+    print(f"Presione el botón para obtener una idea de lo que le espera en los próximos meses. Presione Ctrl+C para salir. {GPIO_BOTON}...")
 
-    pause()
+    try:
+        pause()
+    except KeyboardInterrupt:
+        print("\nOráculo apagado. Hasta la próxima!")
