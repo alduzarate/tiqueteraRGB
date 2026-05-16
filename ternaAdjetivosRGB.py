@@ -104,13 +104,13 @@ def ejecutar_impresion():
 
 if __name__ == "__main__":
     #ejecutar_impresion()  # Para pruebas sin botón
-    
+
     boton = Button(GPIO_BOTON, pull_up=True, bounce_time=0.3)
 
     boton.when_pressed = ejecutar_impresion
 
     print("Oráculo RGB listo. Pensando...")
-    print(f"Presione el botón para obtener una idea de lo que le espera en los próximos meses. Presione Ctrl+C para salir. {GPIO_BOTON}...")
+    print(f"Presione el botón para obtener una idea de lo que le espera en los próximos meses. Presione Ctrl+C para salir.")
 
     try:
         pause()
