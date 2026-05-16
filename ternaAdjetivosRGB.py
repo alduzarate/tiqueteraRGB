@@ -104,6 +104,7 @@ def ejecutar_impresion():
 
 if __name__ == "__main__":
     #ejecutar_impresion()  # Para pruebas sin botón
+    
     boton = Button(GPIO_BOTON, pull_up=True, bounce_time=0.3)
 
     boton.when_pressed = ejecutar_impresion
