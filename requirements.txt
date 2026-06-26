@@ -4,14 +4,16 @@ sudo apt install python3-pil python3-gpiozero cups
 
 Supuestos importantes:
 
-- La impresora está instalada en CUPS (con las salvedades de que se agregue como Generic y Raw Queue).
+- La impresora está instalada en la máquina (con las salvedades de que se agregue como Generic Raw Queue o Local Raw Printer 
+(Options -> Printer details -> Select From Database -> Manufacturer: Raw Driver Raw Queue)).
+Para ver instrucciones paso a paso de cómo instalarla se puede consultar: https://domeu.blogspot.com/2020/01/imprimante-zebra-usb-en-reseau-avec.html
 - El nombre de la impresora en CUPS es Zebra_GC420t. (Se puede chequear con lpstat -p)
 - El botón está conectado al GPIO 17 y a GND.
 - La Zebra acepta ZPL. Si la impresora está configurada solo en EPL, esto no va a funcionar hasta cambiar/configurar el lenguaje.
 
 Para poner en modo ZPL desde linux hay que:
 lpstat -p (para ver el nombre de la impresora)
-printf '! U1 getvar "device.languages"\n' | lp -d Zebra_GC420t -o raw (probar que devuelve este comando)
+printf '! U1 getvar "device.languages"\n' | lp -d Zebra_GC420t -o raw (probar que no devuelve error este comando)
 printf '! U1 setvar "device.languages" "zpl"\n' | lp -d Zebra_GC420t -o raw (para cambiar a ZPL)
 REINICIAR IMPRESORA
 
