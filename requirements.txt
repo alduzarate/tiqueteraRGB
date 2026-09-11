@@ -10,6 +10,10 @@ Para ver instrucciones paso a paso de cómo instalarla se puede consultar: https
 - El nombre de la impresora en CUPS es Zebra_GC420t. (Se puede chequear con lpstat -p)
 - El botón está conectado al GPIO 17 y a GND.
 - La Zebra acepta ZPL. Si la impresora está configurada solo en EPL, esto no va a funcionar hasta cambiar/configurar el lenguaje.
+- El tamaño del papel etiqueta es 57mm ancho (width) por 29mm alto (height).
+- Esta impresora Zebra en particular se puede recalibrar manteniendo apretado el boton de encendido,
+hasta que la luz del boton titile por 2da vez. Si ahí se lo suelta, comenzará el proceso de recalibración.
+
 
 Para poner en modo ZPL desde linux hay que:
 lpstat -p (para ver el nombre de la impresora)
